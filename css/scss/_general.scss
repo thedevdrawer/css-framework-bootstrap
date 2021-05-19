@@ -1,0 +1,36 @@
+%clearfix {
+	display: block;
+	clear: both;
+}
+
+body {
+	font-family: $primaryFont;
+	font-size: 16px;
+	color: $body;
+	padding: 2rem 0;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1200px;
+	width: 100%;
+}
+
+.container-fluid {
+	margin: 0 auto;
+	max-width: 1800px;
+	width: 100%;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+small {
+	display: block;
+	font-size: 0.25rem;
+}

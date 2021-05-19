@@ -1,0 +1,24 @@
+@each $type, $class in $style-type {
+	.alert-#{$type} {
+		background-color: $class;
+		color: rgba(255, 255, 255, 1);
+		border: 2px solid darken($class, 15%);
+		border-radius: 5px;
+		margin: 1rem 0;
+		padding: 1rem;
+		opacity: 0.85;
+		& span {
+			font-weight: bold;
+		}
+	}
+	@if ($type == "muted") {
+		.alert-#{$type} {
+			color: $body;
+		}
+	}
+	@if ($type == "light") {
+		.alert-#{$type} {
+			color: $body;
+		}
+	}
+}

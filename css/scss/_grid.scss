@@ -1,0 +1,65 @@
+.col {
+	grid-row: row;
+	flex-grow: 1;
+	flex-direction: left;
+	margin: $gap * 1%;
+	float: left;
+}
+
+$map-grid-props: (
+	"": 0,
+	"-sm": $grid__bp-sm,
+	"-md": $grid__bp-md,
+	"-lg": $grid__bp-lg,
+	"-xl": $grid__bp-xl,
+);
+
+@mixin create-mq($breakpoint, $min-or-max) {
+	@if ($breakpoint == 0) {
+		@content;
+	} @else {
+		@media screen and (#{$min-or-max}-width: $breakpoint *1px) {
+			@content;
+		}
+	}
+}
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+	@include create-mq($breakpoint, "min") {
+		@for $i from 1 through $grid-cols {
+			$margin: 100 / ($grid-cols / $i);
+			.col#{$modifier}-#{$i} {
+				flex-basis: ($margin - ($gap * 2)) * 1%;
+				margin: $gap * 1%;
+			}
+		}
+	}
+}
+
+@each $modifier, $breakpoint in $map-grid-props {
+	@if ($modifier == "") {
+		$modifier: "-xs";
+	}
+	@include create-mq($breakpoint - 1, "max") {
+		.hidden#{$modifier}-down {
+			display: none !important;
+		}
+	}
+	@include create-mq($breakpoint, "min") {
+		.hidden#{$modifier}-up {
+			display: none !important;
+		}
+	}
+}
+
+.row {
+	margin: $gap auto;
+	& {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+	@each $modifier, $breakpoint in $map-grid-props {
+		@include create-col-classes($modifier, $grid__cols, $breakpoint);
+	}
+}

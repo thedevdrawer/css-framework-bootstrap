@@ -1,0 +1,41 @@
+.img-fluid {
+	max-width: 100%;
+	height: auto;
+}
+
+.img-thumb {
+	max-width: calc(100% - 0.55rem);
+	padding: 0.25rem;
+	background-color: $white;
+	border: 1px solid $light;
+	border-radius: 0.25rem;
+}
+
+.img-rounded {
+	border-radius: 50%;
+}
+
+.img-rounded-corner {
+	border-radius: 5%;
+}
+
+.img-rounded-corner-lt {
+	border-radius: 25% 0 0 0;
+}
+
+.img-rounded-corner-lb {
+	border-radius: 0 0 0 25%;
+}
+
+.img-rounded-corner-rt {
+	border-radius: 0 25% 0 0;
+}
+
+.img-rounded-corner-rb {
+	border-radius: 0 0 25% 0;
+}
+
+.img-block {
+	margin: 0 auto;
+	display: block;
+}

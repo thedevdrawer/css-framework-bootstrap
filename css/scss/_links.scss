@@ -1,0 +1,21 @@
+@each $type, $class in $style-type {
+	.text-#{$type} {
+		color: $class;
+		&:hover,
+		&:focus,
+		&:active {
+			color: darken($class, 15%);
+		}
+	}
+	@if ($type == "dark") {
+		.text-#{$type} {
+			color: $class;
+
+			&:hover,
+			&:focus,
+			&:active {
+				color: lighten($class, 45%);
+			}
+		}
+	}
+}

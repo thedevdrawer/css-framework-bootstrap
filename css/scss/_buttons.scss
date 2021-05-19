@@ -1,0 +1,59 @@
+.btn {
+	border-radius: 5px;
+	border-style: solid;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	outline: none;
+	margin-bottom: 0.25rem;
+	display: inline-block;
+}
+
+.btn-sm {
+	font-size: 0.75rem;
+}
+
+.btn-lg {
+	font-size: 1.25rem;
+}
+
+@each $type, $class in $style-type {
+	.btn-#{$type} {
+		background-color: $class;
+		color: $white;
+		border-color: $class;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: darken($class, 15%);
+			border-color: darken($class, 15%);
+		}
+	}
+	@if ($type == "light") {
+		.btn-#{$type} {
+			background-color: $class;
+			color: $body;
+			border-color: $class;
+
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: darken($class, 15%);
+				border-color: darken($class, 15%);
+			}
+		}
+	} @else if ($type == "dark") {
+		.btn-#{$type} {
+			background-color: $class;
+			color: $white;
+			border-color: $class;
+
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: lighten($class, 15%);
+				border-color: lighten($class, 15%);
+			}
+		}
+	}
+}
